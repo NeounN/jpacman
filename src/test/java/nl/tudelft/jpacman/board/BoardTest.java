@@ -13,55 +13,41 @@ import static org.mockito.Mockito.mock;
  * @author Jeroen Roosen
  */
 class BoardTest {
-    private final Square square = new BasicSquare();
 
     // 4. Since the board is valid your test should pass.
     // (width x height: 1×1 is large enough..)
     @Test
     void testBoard() {
-        Square[][] squareBoard = {
-            {square},
-            {square}
+        Square[][] square = {
+            { mock(Square.class) },
+            { mock(Square.class) }
         };
-        Board board = new Board(squareBoard);
-        assertThat(board.squareAt(0, 0)).isEqualTo(square);
+        Board board = new Board(square);
+        assertThat(board.invariant()).isEqualTo(true);
     }
 
     // 5. Create a second test case in which you construct a similar board,
     //    but with just one null square.
     @Test
     void testBoardWithNull() {
-        Square[][] squareBoard = { // (2x2 board size with the last one null square)
-            { square, square },
-            { square, null }
+        Square[][] square = { // (2x2 board size with the last one null square)
+            { mock(Square.class), mock(Square.class) },
+            { mock(Square.class), null }
         };
-        Board board = new Board(squareBoard);
-        assertThat(board.squareAt(0,0)).isEqualTo(square); //
+        Board board = new Board(square);
+        assertThat(board.invariant()).isEqualTo(false);////xxxx
     }
 
-    // 4. Since the board is valid your test should pass.
-    // (width x height: 1×1 is large enough..)
-//    @Test
-//    void testBoard() {
-//        Square[][] squareBoard = {
-//            { mock(Square.class) },
-//            { mock(Square.class) }
-//        };
-//        Board board = new Board(squareBoard);
-//        assertThat(board.invariant()).isEqualTo(true);
-//    }
 
-    // 5. Create a second test case in which you construct a similar board,
-    //    but with just one null square.
+//    private final Square[][] grid = {
+//        { mock(Square.class), mock(Square.class), mock(Square.class) },
+//        { mock(Square.class), mock(Square.class), mock(Square.class) },
+//    };
+//    private final Board board = new Board(grid);
+//
 //    @Test
-//    void testBoardWithNull() {
-//        Square[][] squareBoard = { // (2x2 board size with the last one null square)
-//            { mock(Square.class), mock(Square.class) },
-//            { mock(Square.class), null }
-//        };
-//        Board board = new Board(squareBoard);
-//        assertThat(board.invariant()).isEqualTo(false);////xxxx
+//    void testSquareAt(int x, int y) {
+//        assertThat(board.squareAt(x, y)).isEqualTo(grid[x][y]);
 //    }
-
 }
 
