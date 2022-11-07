@@ -54,4 +54,4 @@ jobs:
           message: 'Updated JaCoCo badges'
           add: '.github/badges/*.svg'
     - name: Show test results
-      run: cat build/reports/jacoco/test/jacocoTestReport.csv 
+      run: cat build/reports/jacoco/test/jacocoTestReport.csv
