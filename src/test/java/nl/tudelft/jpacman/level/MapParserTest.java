@@ -43,7 +43,12 @@ public class MapParserTest {
         map.add("############");
         mapParser.parseMap(map);
 
+        int NumberOfGround = 10; // wall ==> number of [space] and P, G
+        int NumberOfWall = 26; // wall ==> number of #
+
         Mockito.verify(levelFactory, Mockito.times(1)).createGhost();
+        Mockito.verify(boardFactory, Mockito.times(NumberOfGround)).createGround();
+        Mockito.verify(boardFactory, Mockito.times(NumberOfWall)).createGround();
     }
 
     /**
