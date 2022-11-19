@@ -48,7 +48,7 @@ public class MapParserTest {
 
         Mockito.verify(levelFactory, Mockito.times(1)).createGhost();
         Mockito.verify(boardFactory, Mockito.times(NumberOfGround)).createGround();
-        Mockito.verify(boardFactory, Mockito.times(NumberOfWall)).createGround();
+        Mockito.verify(boardFactory, Mockito.times(NumberOfWall)).createWall();
     }
 
     /**
